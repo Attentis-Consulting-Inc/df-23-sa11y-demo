@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v3.0.0
 
       - name: Install Salesforce CLI
-        run: npm i @salesforce/cli -g
+        run: npm install --global @salesforce/cli
 
       - name: Checkout source code
         uses: actions/checkout@v2
@@ -27,8 +27,9 @@ jobs:
           
       - name: Install sf jest package and Sa11y library
         run: |
+          cd main
           sf force lightning lwc test setup
-          npm install -D @sa11y/jest
+          npm install -D @sa11y/jest    
           
       - name: Run LWC jest tests
         run: |
