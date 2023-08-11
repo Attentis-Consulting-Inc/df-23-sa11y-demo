@@ -33,4 +33,5 @@ jobs:
           
       - name: Run LWC jest tests
         run: |
+          cd main
           npm run test:unit:coverage
