@@ -17,7 +17,7 @@ jobs:
       - name: Setup npm
         uses: actions/setup-node@v3.0.0
 
-      - name: Install sf
+      - name: Install Salesforce CLI
         run: npm i @salesforce/cli -g
 
       - name: Checkout source code
@@ -25,12 +25,12 @@ jobs:
         with:
           path: main
           
-      - name: Install SFDX Jest package and sa11y ADA library
+      - name: Install sf jest package and Sa11y library
         run: |
-          npm install -D @sa11y/jest
           sf force lightning lwc test setup
+          npm install -D @sa11y/jest
           
-      - name: Run LWC Jest tests
+      - name: Run LWC jest tests
         run: |
           npm run test:unit:coverage > jest_results 2>&1
           cat jest_results
