@@ -1,0 +1,49 @@
+# validate.yml
+
+name: Validate Build
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: ${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  validate-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup npm
+        uses: actions/setup-node@v3.0.0
+
+      - name: Install sf
+        run: npm i @salesforce/cli -g
+
+      - name: Checkout source code
+        uses: actions/checkout@v2
+        with:
+          path: main
+
+      - name: Authenticate Org
+        run: |
+          echo "${SF_SECRET_KEY}" > server.key
+        # Note the username's ".qa" suffix, this is to remove the need
+        # of having multiple usernames per environment
+          sf org login jwt -o "$SF_USERNAME" -f ./server.key -i "$SF_CONSUMER_KEY" -a targetOrg
+        env:
+          SF_USERNAME: ${{secrets.SF_USERNAME}}
+          SF_CONSUMER_KEY: ${{secrets.SF_CONSUMER_KEY}}
+          SF_SECRET_KEY: ${{secrets.SF_SECRET_KEY}}
+
+      - name: Install SFDX Jest package and sa11y ADA library
+        run: |
+          sfdx force lightning lwc test setup
+          npm install -D @sa11y/jest
+          
+      - name: Run LWC Jest tests
+        run: |
+          npm run test:unit:coverage > jest_results 2>&1
+          cat jest_results
+          if [ $(grep "Tests:\s\+.*[0-9]\+\sfailed" jest_results | wc -l) -ne "0" ]; then $(exit 1); fi
+          if [ $(grep "Test Suites:\s\+.*[0-9]\+\sfailed" jest_results | wc -l) -eq "0" ]; then $(exit 0); else $(exit 1); fi
