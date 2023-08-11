@@ -27,8 +27,8 @@ jobs:
           
       - name: Install SFDX Jest package and sa11y ADA library
         run: |
-          sfdx force lightning lwc test setup
           npm install -D @sa11y/jest
+          sf force lightning lwc test setup
           
       - name: Run LWC Jest tests
         run: |
