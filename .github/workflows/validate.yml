@@ -33,11 +33,4 @@ jobs:
           
       - name: Run LWC jest tests
         run: |
-          npm run test:unit:coverage > jest_results 2>&1
-          if [ ! -f ./jest_results ]; then exit 1; fi
-          echo "Test results:"
-          cat jest_results
-          if [ $(grep "Tests:\s\+[0-9]\+" jest_results | wc -l) -eq "0" ]; then exit 1; fi
-          if [ $(grep "Test Suites:\s\+[0-9]\+" jest_results | wc -l) -eq "0" ]; then exit 1; fi
-          if [ $(grep "Tests:\s\+.*[0-9]\+\sfailed" jest_results | wc -l) -ne "0" ]; then exit 1; fi
-          if [ $(grep "Test Suites:\s\+.*[0-9]\+\sfailed" jest_results | wc -l) -ne "0" ]; then exit 1; fi
+          npm run test:unit:coverage
