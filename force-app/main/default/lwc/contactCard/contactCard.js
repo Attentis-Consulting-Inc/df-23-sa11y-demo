@@ -1,4 +1,4 @@
-import { LightningElement} from 'lwc';
+import { LightningElement } from 'lwc';
 import DFImage from "@salesforce/resourceUrl/DreamforceImage";
 
 export default class ContactCard extends LightningElement {
