@@ -8,7 +8,17 @@ describe('c-contact-card', () => {
             document.body.removeChild(document.body.firstChild);
         }
     });
+    
+    it('is contact card accessible', () => {
+        const element = createElement('c-contact-card', {
+            is: ContactCard
+        });
+    
+        document.body.appendChild(element);
+        return Promise.resolve().then(() => expect(element).toBeAccessible());
+    });
 
+    /*
     it('is accessible when dreamforce is not completed', () => {
         const element = createElement('c-contact-card', {
             is: ContactCard
@@ -28,4 +38,5 @@ describe('c-contact-card', () => {
         document.body.appendChild(element);
         return Promise.resolve().then(() => expect(element).toBeAccessible());
     });
+    */
 });
