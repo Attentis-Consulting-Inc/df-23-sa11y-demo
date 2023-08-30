@@ -17,26 +17,4 @@ describe('c-contact-card', () => {
         document.body.appendChild(element);
         return Promise.resolve().then(() => expect(element).toBeAccessible());
     });
-
-    /*
-    it('is accessible when dreamforce is not completed', () => {
-        const element = createElement('c-contact-card', {
-            is: ContactCard
-        });
-    
-        element.isDreamforceCompleted = false;
-        document.body.appendChild(element);
-        return Promise.resolve().then(() => expect(element).toBeAccessible());
-    });
-
-    it('is accessible when dreamforce is completed', () => {
-        const element = createElement('c-contact-card', {
-            is: ContactCard
-        });
-    
-        element.isDreamforceCompleted = true;
-        document.body.appendChild(element);
-        return Promise.resolve().then(() => expect(element).toBeAccessible());
-    });
-    */
 });
