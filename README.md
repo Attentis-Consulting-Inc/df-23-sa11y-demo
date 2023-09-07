@@ -1,18 +1,7 @@
-# Salesforce DX Project: Next Steps
+# Integrate Accessibility in Your CI/CD Pipeline with sa11y
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+We are really excited to be presenting at #Dreamforce this year! In our #Dreamforce2023 session, Integrate Accessibility in Your CI/CD Pipeline with sa11y, we share our experience with accessibility testing, and how including sa11y in our PR validations helped us improve quality while delivering features faster. The session will take place at the Redwood Theater (Moscone West, Trailblazer Forest) on 9/12/2023 at 2:30 PM Pacific Time.
 
-## How Do You Plan to Deploy Your Changes?
+[Here](https://trailhead.salesforce.com/trailblazer-community/feed/0D54V00007HLMssSAH) you can find our deck, plus additional resources. We hope they are useful! Thanks
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+![presentation](image.png)
